@@ -1,10 +1,9 @@
-const DATABASE_URL = process.env.DATABASE_URL
+require('dotenv').config();
+const { DATABASE_URL } = process.env;
+
 module.exports = {
   "development": {
-    "username": "postgres",
-    "password": "1990",
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "url": DATABASE_URL,
     "dialect": "postgres"
   },
   "test": {

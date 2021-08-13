@@ -1,6 +1,8 @@
 const model = require('./../database/models')
 const bcrypt = require('bcryptjs')
 const jwt    = require('jsonwebtoken')
+require('dotenv').config();
+const { HASH_NUMBER } = process.env;
 
 const login = async (req,res) => {
   if (!req.body.userName || !req.body.password){
@@ -37,11 +39,11 @@ const register = async (req, res) => {
   }
   
   const checkExist = await model.User.count({where: {userName: username}})
-  console.log(checkExist)
+  
   if (checkExist > 0){
     return res.status(401).send({message:"Este usuario ya existe"})
   }
-  const hashedPassword = bcrypt.hashSync(password, 8)//process.env.HASH_NUMBER)
+  const hashedPassword = bcrypt.hashSync(password, parseInt(HASH_NUMBER))
   const inserted = await model.User.create({userName:username, password:hashedPassword, lastName, firstName, email});
   const token = jwt.sign({id: inserted.id}, 'mySecretKey', {expiresIn:86400})
   return res.status(201).json({ token: token  })
