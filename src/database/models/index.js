@@ -38,5 +38,5 @@ db.Sequelize = Sequelize;
 //ante cualquier cambio en el modelo agrega la informacion a la tabla, sin modificar los datos
 // sequelize.sync({alter:true})
 // ante cualquier cambio en el modelo destruye la informacion y crea de nuevo la estructura de la tabla
-//sequelize.sync({force:true})
+sequelize.sync({force:true})
 module.exports = db;
