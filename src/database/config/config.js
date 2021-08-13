@@ -15,6 +15,12 @@ module.exports = {
   },
   "production": {
     "url": DATABASE_URL,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions":{
+      "ssl":{
+        "required": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
