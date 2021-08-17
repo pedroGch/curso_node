@@ -12,7 +12,7 @@ const loggedInRoutes = () => {
 const authenticatorRoutes = () => {
   //aca se registran todas las rutas, para la autenticacion
   const router = Router();
-  router.get("/", (req,res)=>res.send("WELCOME TO THE API!"));
+  router.get("/", (req,res)=>res.status(200).send("WELCOME TO THE API!"));
   router.use('/auth', authRoutes);
   return router;
 };

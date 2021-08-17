@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
+     *  Modelo “Tarea”: nombre de la tarea, fecha de creación, fecha de vencimiento, descripción, completada (true o false) .
      */
     static associate(models) {
       // define association here

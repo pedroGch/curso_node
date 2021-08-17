@@ -32,6 +32,7 @@ const init = () =>{
   configHeaders(app);
   app.listen(PORT);
   console.log( "servidor activo en el puerto " + PORT );
+  return app;
 }
 
 init();
