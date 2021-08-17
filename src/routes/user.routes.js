@@ -8,7 +8,8 @@ const {
 
 const { authJwt } = require ('../middleware')
 
-router.get("/", [authJwt.check] , getUsers);
+//router.get("/", [authJwt.check] , getUsers);
+router.get("/", getUsers);
 
 router.delete("/:id", deleteUser);
 
