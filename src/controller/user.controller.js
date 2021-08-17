@@ -12,8 +12,7 @@ const getUsers = async (req,res) => {
 const deleteUser = async (req, res) => {
   const {id} = req.params
   await model.User.destroy({where: {id : id}})//primer id nombre del atriburo sengundo id nombre del parametro
-  const users = await mode
-  l.User.findAll() //esto se saca
+  const users = await model.User.findAll() //esto se saca
   return res.status(201).json({users})
 }
 
@@ -21,7 +20,6 @@ const updateUser = async (req,res) =>{
   const {id} = req.params //id que quiero actualizar
   const data = req.body //datos nuevos a actualizar
   const updated = await model.User.update(data, {where: {id : id}})
-  console.log(updated)
   const user = await model.User.findByPk(id)
   return res.status(201).json({user})
 }
